@@ -64,66 +64,75 @@
                     <h1>About</h1>
                 </div>
             </div>
-            <div class="row">
-                <h4>Overview</h4>
+            <div align="left">
+                <h3>Overview</h3>
                 <p>Dart is an object-oriented/class-defined programming language created by Google. 
                     It’s most commonly used in development for multi-platform applications, including 
                     mobile, desktop, backend and web-apps. Its syntax and functionality is heavily influenced 
                     compared to other popular programming languages, like C, C#, and JavaScript.
-                <h4>History</h4>
+                </p>
+
+                <h3>History</h3>
                 <p>Dart first appeared on October 10th, 2011 at the GOTO conference in Aurhus, Denmark by 
                     founders/developers Lars Bak and Kaspr Lund and was later published/maintained by Google. 
                     Since then, Dart has seen frequent periodic updates for its publically available SDK and compilers. 
-                    Some noteworthy releases include Google’s Dart Editor on November 2011, an Eclipse plugin on August 
-                    2012, a Dart to JavaScript (dart2js) compiler, and a JetBrains IDE plugin on April 2015.</p>
-                <h4>Specifications</h4>
+                    Some noteworthy releases include Google’s Dart Editor (November 2011), an official Eclipse plugin (August 
+                    2012), a Dart to JavaScript (dart2js) compiler (March 2013), and an official JetBrains IDE plugin (April 2015).
+                </p>
+
+                <h3>Specifications</h3>
                 <p>Dart is a multiparadigm object-oriented programming language with several aspects that make it ideal 
                     for multi-platform development. It is a statically typed, imperative, reflective, functional, and 
                     garbage-collected language that supports many helpful features, such as interfaces, mixins, and abstract 
-                    classes/generics.</p>
+                    classes/generics.
+                </p>
                 <p>One of Dart’s most advertised and noteworthy features is the way it handles compilation and/or interpretation. 
                     Originally, the language only supported ARM & x64 machine code compilation for mobile, desktop, and backend 
                     applications. However, the dart2js compiler allows developers to compile their Dart programs directly 
                     into JavaScript, which is extremely helpful for full stack web development. Because of this feature, modern 
                     web-browsers don’t need to adopt Dart interpreters as most of them already interpret JavaScript.</p>
-                <h4>Documentation, Manuals, and Tutorials</h4>
-                <p>The best place to find documentation, interface guides, and libraries is at Dart.dev/guides, which includes links 
-                    to several links to several aspects of the language. For those looking for a quick start to the language, 
-                    Dart.dev/samples includes a great overview for syntax and programming examples, ranging from beginner content, 
-                    like Hello World, to more complex topics, like interfaces and abstract classes. Dart.dev/resoures also links users 
-                    to books and videos aimed at all skill levels for the language. For those that prefer the help of fellow developers, 
-                    Dart.dev/community includes several social media links to stay updated on releases, Reddit/StackOverflow links for 
-                    more specific questions, and public repositories for those who would like to contribute to the Dart SDK or other Dart 
-                    projects. Finally, DartPad.dev has an in-browser demo that allows developers to run through real examples or develop 
-                    and run their own programs.</p>
-                <h4>Translators and installation instructions</h4>
-                <p>Installation for Dart is fairly simple. Follow the instructions to install the Dart SDK to your system:<br>
 
-                        WINDOWS 64 BIT - Go to https://gekorm.com/dart-windows/ and follow the instructions of the install wizard. 
-                        Alternatively, install Chocolatey, and run the following command:<br>
-                        <br>
-                        $ -> choco install dark-sdk<br>
-                        <br>
-                        MAC - Install Homebrew and run the following commands<br>
-                        <br>
-                        $ -> brew tap dart-lang/dart<br>
-                        $ -> brew install dart<br>
-                        <br>
-                        LINUX (using apt-get on Debian/Ubuntu)<br>
-                        <br>
-                        Perform this one-time setup<br>
-                        <br>
-                        $ -> sudo apt-get update<br>
-                        $ -> sudo apt-get install apt-transport-https<br>
-                        $ -> sudo sh -c ‘wget -q0- https://dl=ssl.google.com/linux/linux_signing_key.pub | apt-key add -’<br>
-                        $ -> sudo sh -c ‘wget -q0- https://storage.googleapis.com/download.dartlang.org/linux /debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list’<br>
-                        <br>
-                        Then, install Dart with the following commands<br>
-                        <br>
-                        $ -> sudo apt-get update<br>
-                        $ -> sudo apt-get install dart<br>
-                        <br>
-                        More detailed instructions can be found on Dart.dev/get-dart</p>
+                <h3>Documentation, Manuals, and Tutorials</h3>
+                <p>The best place to find documentation, interface guides, and libraries is at <a href="https://www.dart.dev/guides">Dart's 
+                    Guide Page</a>, which includes links to several links to several aspects of the language. For those looking for a 
+                    quick start to the language, <a href="https://www.dart.dev/samples">Dart's Samples Page</a> includes a great overview for 
+                    syntax and programming examples, ranging from beginner content, like Hello World, to more complex topics, like interfaces 
+                    and abstract classes. <a href="https://www.dart.dev/resources">Dart's Resources Page</a> also links users to books and videos 
+                    aimed at all skill levels for the language. For those that prefer the help of fellow developers, <a href="https://www.dart.dev/community">
+                    Dart's Community Page</a> includes several social media links to stay updated on releases, Reddit/StackOverflow links for 
+                    more specific questions, and public repositories for those who would like to contribute to the Dart SDK or other Dart 
+                    projects. Finally, <a href="https://www.dartpad.dev">DartPad</a> has an in-browser demo that allows developers to run 
+                    through real examples or develop and run their own programs.
+                </p>
+
+                <h3>Translators and installation instructions</h3>
+                <p>Installation for Dart is fairly simple. Follow the instructions to install the Dart SDK to your system:<br>
+                    <h4>Windows</h4>
+                    Go to https://gekorm.com/dart-windows/ and follow the instructions of the install wizard.<br>
+                    <br>
+                    Alternatively, install Chocolatey, and run the following command:<br>
+                    <br>
+                    $ -> choco install dark-sdk<br>
+                    <h4>macOS</h4>
+                    Install Homebrew and run the following commands<br>
+                    <br>
+                    $ -> brew tap dart-lang/dart<br>
+                    $ -> brew install dart<br>
+                    <h4>Linux (Ubuntu)</h4>
+                    Perform this one-time setup<br>
+                    <br>
+                    $ -> sudo apt-get update<br>
+                    $ -> sudo apt-get install apt-transport-https<br>
+                    $ -> sudo sh -c ‘wget -q0- https://dl=ssl.google.com/linux/linux_signing_key.pub | apt-key add -’<br>
+                    $ -> sudo sh -c ‘wget -q0- https://storage.googleapis.com/download.dartlang.org/linux /debian/dart_stable.list > /etc/apt/sources.list.d/dart_stable.list’<br>
+                    <br>
+                    Then, install Dart with the following commands<br>
+                    <br>
+                    $ -> sudo apt-get update<br>
+                    $ -> sudo apt-get install dart<br>
+                    <br>
+                    More detailed instructions can be found on Dart.dev/get-dart
+                </p>
             </div>
         </div>
     </section>
