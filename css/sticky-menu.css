@@ -69,6 +69,20 @@ html {
     text-align: center;
     background: #EFDECD;
 }
+
+/*Oscar's CSS didn't know where else to put it */
+.langauge-comparison-section{
+    /*height: 100%;*/
+    padding-top: 150px;
+    padding-bottom: 150px; 
+    text-align: center;
+    background: #fff;
+}
+.langauge-comparison-section table, .langauge-comparison-section th,
+.langauge-comparison-section td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
 .navbar-default .navbar-nav > li > a:hover {
 	color: #333;
 	background-color: #F0F0F0;
