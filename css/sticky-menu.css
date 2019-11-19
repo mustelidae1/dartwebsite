@@ -83,6 +83,10 @@ html {
     border: 1px solid black;
     border-collapse: collapse;
 }
+.langauge-comparison-section th{
+    height: 40pt;
+}
+
 .navbar-default .navbar-nav > li > a:hover {
 	color: #333;
 	background-color: #F0F0F0;
