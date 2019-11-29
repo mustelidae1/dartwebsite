@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cs_354/tic_tac_toe_button.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,13 +45,31 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _incrementCounter() {
+  int player; // 0 for X, 1 for O
+  List<TicTacToeButton> buttonList = <TicTacToeButton>[
+    new TicTacToeButton(id: 1),
+    new TicTacToeButton(id: 2),
+    new TicTacToeButton(id: 3),
+    new TicTacToeButton(id: 4),
+    new TicTacToeButton(id: 5),
+    new TicTacToeButton(id: 6),
+    new TicTacToeButton(id: 7),
+    new TicTacToeButton(id: 8),
+    new TicTacToeButton(id: 9),
+  ];
+
+  void clickButton(TicTacToeButton b) {
+    print(b.text);
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
+      if(player == 0) { // X's turn
+        b.text = "X";
+        b.bg = Colors.blue;
+        player = 1;
+      } else {  // O's turn
+        b.text = "O";
+        b.bg = Colors.orange;
+        player = 0;
+      }
     });
   }
 
@@ -71,8 +90,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: 
       new Center(child: 
           new Container(
-            height: 800, 
-            width: 800,
+            height: 400, 
+            width: 400,
             child: new GridView.builder(
               padding: const EdgeInsets.all(10.0),
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
@@ -86,9 +105,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 50.0,
                 height: 50.0,
                 child: new RaisedButton(
+                  onPressed: () => clickButton(buttonList[i]),
                   padding: const EdgeInsets.all(8.0),
                   child: new Text(
-                    "Hello"
+                    "_",
+                    style: new TextStyle(
+                      color: Colors.black, 
+                      fontSize: 50.0,
+                    ),
                   ),
                 ),
               ),
