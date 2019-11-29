@@ -108,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   onPressed: () => clickButton(buttonList[i]),
                   padding: const EdgeInsets.all(8.0),
                   child: new Text(
-                    "_",
+                    buttonList[i].text,
                     style: new TextStyle(
                       color: Colors.black, 
                       fontSize: 50.0,
