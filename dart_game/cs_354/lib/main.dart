@@ -45,6 +45,33 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  /*
+  int player represents the active player:
+  0 = the 'X' player
+  1 = the 'O' player
+
+  Every time a button is pushed, the player flips
+
+  Upon pressing a button in the GUI, clickButton is called 
+  and the corresponding button will either switch to 'X'
+  or 'O' depending on the player. 
+
+  Once the button has swapped, we'll have to check which player
+  just played and what button was changed. Check the stubbed-out
+  'checkWin()' method.
+
+  Given the button index 'i' and the last player int 'p', we need
+  to check the cases for a win (horizontal, vertical, oblique, etc.)
+  and return whether or not this was a win.
+
+  Think of the buttonList like this:
+  [0][1][2]
+  [3][4][5]
+  [6][7][8]
+  */
+
+
   int player; // 0 for X, 1 for O
   List<TicTacToeButton> buttonList = <TicTacToeButton>[
     new TicTacToeButton(id: 1),
@@ -58,19 +85,30 @@ class _MyHomePageState extends State<MyHomePage> {
     new TicTacToeButton(id: 9),
   ];
 
-  void clickButton(TicTacToeButton b) {
-    print(b.text);
+  void clickButton(TicTacToeButton b, int buttonIndex) {
+    int lastPlayer = player;
     setState(() {
       if(player == 0) { // X's turn
         b.text = "X";
         b.bg = Colors.blue;
+        b.enabled = false;
         player = 1;
       } else {  // O's turn
         b.text = "O";
         b.bg = Colors.orange;
+        b.enabled = false;
         player = 0;
       }
     });
+
+    if(isWin(buttonIndex, lastPlayer)) {
+      // TODO handle win scenario
+    }
+  }
+
+  bool isWin(int i, int p) {
+    // TODO check if last move was a winning move 
+    return false;
   }
 
   @override
@@ -105,7 +143,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 50.0,
                 height: 50.0,
                 child: new RaisedButton(
-                  onPressed: () => clickButton(buttonList[i]),
+                  onPressed: buttonList[i].enabled
+                    ? () => clickButton(buttonList[i], i)
+                    : null,
                   padding: const EdgeInsets.all(8.0),
                   child: new Text(
                     buttonList[i].text,
@@ -114,12 +154,13 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 50.0,
                     ),
                   ),
+                  color: buttonList[i].bg,
+                  disabledColor: buttonList[i].bg,
                 ),
               ),
             ),
-          )));
-          
-     
-    
+          )
+        )
+      );
   }
 }
