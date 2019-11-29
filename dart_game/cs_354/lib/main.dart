@@ -73,17 +73,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   int player; // 0 for X, 1 for O
-  List<TicTacToeButton> buttonList = <TicTacToeButton>[
-    new TicTacToeButton(id: 1),
-    new TicTacToeButton(id: 2),
-    new TicTacToeButton(id: 3),
-    new TicTacToeButton(id: 4),
-    new TicTacToeButton(id: 5),
-    new TicTacToeButton(id: 6),
-    new TicTacToeButton(id: 7),
-    new TicTacToeButton(id: 8),
-    new TicTacToeButton(id: 9),
-  ];
+  List<TicTacToeButton> buttonList; 
+
+  @override
+  void initState() {
+    super.initState();
+    buttonList = new List<TicTacToeButton>(); 
+    for (var i = 0; i <= 9; i++) {
+      buttonList.add(new TicTacToeButton(id: i));  
+    }
+  }
 
   void clickButton(TicTacToeButton b, int buttonIndex) {
     int lastPlayer = player;
