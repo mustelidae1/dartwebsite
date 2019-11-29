@@ -68,11 +68,11 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: new Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          new Expanded(
+      body: 
+      new Center(child: 
+          new Container(
+            height: 800, 
+            width: 800,
             child: new GridView.builder(
               padding: const EdgeInsets.all(10.0),
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
@@ -83,8 +83,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               itemCount: 9,
               itemBuilder: (context, i) => new SizedBox(
-                width: 100.0,
-                height: 100.0,
+                width: 50.0,
+                height: 50.0,
                 child: new RaisedButton(
                   padding: const EdgeInsets.all(8.0),
                   child: new Text(
@@ -93,9 +93,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-          ),
-        ],
-      ),
-    );
+          )));
+          
+     
+    
   }
 }
