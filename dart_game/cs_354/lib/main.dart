@@ -44,8 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   void _incrementCounter() {
     setState(() {
       // This call to setState tells the Flutter framework that something has
@@ -53,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
     });
   }
 
@@ -71,92 +68,34 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            GridView.count(
-              primary: false,
-              shrinkWrap: true,
-              scrollDirection: Axis.vertical,
-              padding: const EdgeInsets.all(20),
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              crossAxisCount: 3,
-              children: <Widget>[
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
+      body: new Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          new Expanded(
+            child: new GridView.builder(
+              padding: const EdgeInsets.all(10.0),
+              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+                childAspectRatio: 1.0,
+                crossAxisSpacing: 9.0,
+                mainAxisSpacing: 9.0
+              ),
+              itemCount: 9,
+              itemBuilder: (context, i) => new SizedBox(
+                width: 100.0,
+                height: 100.0,
+                child: new RaisedButton(
+                  padding: const EdgeInsets.all(8.0),
+                  child: new Text(
+                    "Hello"
+                  ),
                 ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-                Container(
-                  padding: const EdgeInsets.all(8),
-                  child: const Text('Test'),
-                  color: Colors.blue,
-                ),
-              ]
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-      /*
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Inc',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-      */
     );
   }
 }
