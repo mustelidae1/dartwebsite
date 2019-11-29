@@ -7,7 +7,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Tic-Tac-Toe',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Tic-Tac-Toe'),
     );
   }
 }
@@ -91,21 +91,72 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            GridView.count(
+              primary: false,
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              padding: const EdgeInsets.all(20),
+              crossAxisSpacing: 10,
+              mainAxisSpacing: 10,
+              crossAxisCount: 3,
+              children: <Widget>[
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  child: const Text('Test'),
+                  color: Colors.blue,
+                ),
+              ]
             ),
           ],
         ),
       ),
+      /*
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        tooltip: 'Inc',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+      */
     );
   }
 }
