@@ -74,9 +74,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int player; // 0 for X, 1 for O
   List<TicTacToeButton> buttonList; 
-  
+  int xWin;
+  int oWin;
   @override
   void initState() {
+    xWin = 0;
+    oWin = 0;
     super.initState();
     buttonList = new List<TicTacToeButton>(); 
     for (var i = 0; i <= 9; i++) {
@@ -84,17 +87,19 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  void newGame(){
-    for(int i = 0; i <= 8; i++ ){
-      buttonList[i].text = "";
-      buttonList[i].enabled = true;
-      buttonList[i].bg = Colors.grey;
-    }
+  newGame(){
+    buttonList.forEach((element) => resetButton(element));
   }
 
   void resetGame(){
     newGame();
   //Reset score labels
+  }
+
+  void resetButton(TicTacToeButton b){
+    b.bg = Colors.grey;
+    b.text = "";
+    b.enabled = true;
   }
 
   void clickButton(TicTacToeButton b, int buttonIndex) {
@@ -115,6 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if(isWin(buttonIndex, lastPlayer)) {
       // TODO handle win scenario
+      buttonList.forEach((element) => element.enabled = false);
       b.bg = Colors.green;
     }
   }
@@ -269,7 +275,8 @@ if (i == 8){
         title: Text(widget.title),
       ),
       body: 
-      new Center(child: 
+      new Center(
+        child: 
           new Container(
             height: 400, 
             width: 400,
