@@ -102,12 +102,149 @@ class _MyHomePageState extends State<MyHomePage> {
 
     if(isWin(buttonIndex, lastPlayer)) {
       // TODO handle win scenario
+      b.bg = Colors.green;
     }
   }
 
   bool isWin(int i, int p) {
-    // TODO check if last move was a winning move 
+//Initializing neede variables
+    int rangeMin =0;
+    int rangeMax =0;
+    String winningText = (playerText(p));
+    int possible = i;
+    int valid = 0;
+    bool keepGoing = true;
+
+//Checking the minimum and maximum possible values in a row
+    if(i == 0 || i == 1 || i == 2){
+      rangeMin = 0;
+      rangeMax = 2;
+    } 
+    if(i == 3 || i == 4 || i == 5){
+      rangeMin = 3;
+      rangeMax = 5;
+    }
+    if(i == 6 || i == 7 || i == 8){
+      rangeMin = 6;
+      rangeMax = 8;
+    }
+
+  //Checking for horizontal wins
+    while(keepGoing){
+      possible++;
+      if(possible <= rangeMax){
+        if(winningText == buttonList[possible].text){
+          valid++;
+        }
+      }
+      else{
+        keepGoing = false;
+      }
+      if(valid == 2){
+        return true;
+      }
+    }
+    possible = i;
+    keepGoing = true;
+
+    while(keepGoing){
+      possible--;
+      if(possible >= rangeMin){
+        if(winningText == buttonList[possible].text){
+          valid++;
+        }
+      }
+      else{
+        keepGoing = false;
+      }
+      if(valid == 2){
+        return true;
+      }
+    }
+
+//Checking for vertical wins
+  possible = i;
+  keepGoing = true;
+  valid = 0;
+    while(keepGoing){
+      possible+=3;
+      if(possible <= 8){
+        if(winningText == buttonList[possible].text){
+          valid++;
+        }
+      }
+      else{
+        keepGoing = false;
+      }
+      if(valid == 2){
+        return true;
+      }
+    }
+    possible = i;
+    keepGoing = true;
+
+    while(keepGoing){
+      possible -=3;
+      if(possible >= 0){
+        if(winningText == buttonList[possible].text){
+          valid++;
+        }
+      }
+      else{
+        keepGoing = false;
+      }
+      if(valid == 2){
+        return true;
+      }
+    }
+    
+//Check for horizontal wins
+  possible = i;
+  keepGoing = true;
+  valid = 0;
+    while(keepGoing){
+      possible+=2;
+      if(possible <= 8){
+        if(winningText == buttonList[possible].text){
+          valid++;
+        }
+      }
+      else{
+        keepGoing = false;
+      }
+      if(valid == 2){
+        return true;
+      }
+    }
+    possible = i;
+    keepGoing = true;
+
+    while(keepGoing){
+      possible -=2;
+      if(possible >= 0){
+        if(winningText == buttonList[possible].text){
+          valid++;
+        }
+      }
+      else{
+        keepGoing = false;
+      }
+      if(valid == 2){
+        return true;
+      }
+    }
+
+//Return false if none of the above are found to be true
     return false;
+  }
+
+  String playerText(int p){
+    if(p == 0){
+      return "X";
+    }
+    else{
+      return "O";
+    }
   }
 
   @override
