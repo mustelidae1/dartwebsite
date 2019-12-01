@@ -198,7 +198,7 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     }
     
-//Check for horizontal wins
+//Check for diagonal wins
   possible = i;
   keepGoing = true;
   valid = 0;
