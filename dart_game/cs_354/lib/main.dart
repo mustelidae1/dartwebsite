@@ -74,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int player; // 0 for X, 1 for O
   List<TicTacToeButton> buttonList; 
-
+  
   @override
   void initState() {
     super.initState();
@@ -82,6 +82,19 @@ class _MyHomePageState extends State<MyHomePage> {
     for (var i = 0; i <= 9; i++) {
       buttonList.add(new TicTacToeButton(id: i));  
     }
+  }
+
+  void newGame(){
+    for(int i = 0; i <= 8; i++ ){
+      buttonList[i].text = "";
+      buttonList[i].enabled = true;
+      buttonList[i].bg = Colors.grey;
+    }
+  }
+
+  void resetGame(){
+    newGame();
+  //Reset score labels
   }
 
   void clickButton(TicTacToeButton b, int buttonIndex) {
