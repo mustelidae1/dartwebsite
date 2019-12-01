@@ -198,41 +198,35 @@ class _MyHomePageState extends State<MyHomePage> {
       }
     }
     
-//Check for diagonal wins
-  possible = i;
-  keepGoing = true;
-  valid = 0;
-    while(keepGoing){
-      possible+=2;
-      if(possible <= 8){
-        if(winningText == buttonList[possible].text){
-          valid++;
-        }
-      }
-      else{
-        keepGoing = false;
-      }
-      if(valid == 2){
-        return true;
-      }
-    }
-    possible = i;
-    keepGoing = true;
-
-    while(keepGoing){
-      possible -=2;
-      if(possible >= 0){
-        if(winningText == buttonList[possible].text){
-          valid++;
-        }
-      }
-      else{
-        keepGoing = false;
-      }
-      if(valid == 2){
-        return true;
-      }
-    }
+//Check for diagonal wins only if 0,2,4,6,8
+if(i == 0){
+  if(winningText == buttonList[4].text && winningText == buttonList[8].text){
+    return true;
+  }
+}
+if(i == 2){
+  if(winningText == buttonList[4].text && winningText == buttonList[6].text){
+    return true;
+  }
+}
+if(i == 4){
+  if(winningText == buttonList[0].text && winningText == buttonList[8].text){
+    return true;
+  }
+  else if(winningText == buttonList[2].text && winningText == buttonList[6].text){
+    return true;
+  }
+}
+if(i == 6){
+  if(winningText == buttonList[4].text && winningText == buttonList[2].text){
+    return true;
+  }
+}
+if (i == 8){
+  if(winningText == buttonList[4].text && winningText == buttonList[0].text){
+    return true;
+  }
+}
 
 //Return false if none of the above are found to be true
     return false;
