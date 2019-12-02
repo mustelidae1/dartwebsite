@@ -73,22 +73,32 @@ class _MyHomePageState extends State<MyHomePage> {
 
 
   int player; // 0 for X, 1 for O
+  int _xWins = 0;
+  int _oWins = 0;
+  int _draws = 0;
+  int enableCount = 9;
   List<TicTacToeButton> buttonList; 
-  int xWin;
-  int oWin;
+  
   @override
   void initState() {
-    xWin = 0;
-    oWin = 0;
     super.initState();
     buttonList = new List<TicTacToeButton>(); 
     for (var i = 0; i <= 9; i++) {
       buttonList.add(new TicTacToeButton(id: i));  
     }
+    player = 0;
   }
 
-  newGame(){
-    buttonList.forEach((element) => resetButton(element));
+  void newGame(){
+    player = 0;
+    enableCount = 9;
+    for (TicTacToeButton b in buttonList) {
+      setState(() {
+        b.text = "";
+        b.enabled = true;
+        b.bg = Colors.grey;
+      });
+    }
   }
 
   void resetGame(){
@@ -96,13 +106,8 @@ class _MyHomePageState extends State<MyHomePage> {
   //Reset score labels
   }
 
-  void resetButton(TicTacToeButton b){
-    b.bg = Colors.grey;
-    b.text = "";
-    b.enabled = true;
-  }
-
   void clickButton(TicTacToeButton b, int buttonIndex) {
+    enableCount--;
     int lastPlayer = player;
     setState(() {
       if(player == 0) { // X's turn
@@ -119,10 +124,13 @@ class _MyHomePageState extends State<MyHomePage> {
     });
 
     if(isWin(buttonIndex, lastPlayer)) {
-      // TODO handle win scenario
-      buttonList.forEach((element) => element.enabled = false);
-      b.bg = Colors.green;
-    }
+      for (TicTacToeButton b in buttonList)
+        b.enabled = false;
+      if (lastPlayer == 0)
+          _xWins++;
+        else _oWins++;
+    } else if (enableCount == 0)
+      _draws++;
   }
 
   bool isWin(int i, int p) {
@@ -261,6 +269,7 @@ if (i == 8){
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
@@ -275,8 +284,30 @@ if (i == 8){
         title: Text(widget.title),
       ),
       body: 
-      new Center(
-        child: 
+      new Center(child: 
+          new Column(children: <Widget>[
+            new Row(children: <Widget>[
+              Expanded(child: RaisedButton(
+                onPressed: () {
+                  resetGame();
+                },
+                child: Text("Next Game"))),
+              Expanded(child: RaisedButton(
+                onPressed: () {
+                  _xWins = 0;
+                  _draws = 0;
+                  _oWins = 0;
+                  resetGame();
+                },
+                child: Text("Reset Game")))]),
+             new Row(children: <Widget>[
+            Expanded(child: Text("'X' Wins: $_xWins",
+                                 textAlign: TextAlign.center)),
+            Expanded(child: Text("Draws: $_draws",
+                                 textAlign: TextAlign.center)),
+            Expanded(child: Text("'O' Wins: $_oWins",
+                                 textAlign: TextAlign.center))
+            ]),
           new Container(
             height: 400, 
             width: 400,
@@ -309,8 +340,9 @@ if (i == 8){
                 ),
               ),
             ),
-          )
-        )
-      );
+          )     // /container
+        ])      // /column
+        )       // /center
+      );        // /scaffold
   }
 }
